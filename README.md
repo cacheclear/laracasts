@@ -32,3 +32,11 @@ In the File ".env" in the root directory is a single secure place to store keys 
 #####Artisan:
 - The command "php artisan migrate" will run the migrations located in /database/migrations
 
+
+####E05_Pass_Data_to_Your_Views:
+
+- Second parameter af global function "view" can be used to specify variables (keys of an associative array) which will be available in the view.
+- Use the PHP-own function "compact" to pack variables of the actual scope in an array.
+- Every PHP template directive and condition can be replaced by the Blade template equivalent e.g. @if() instead of <?= if(): ?>
+
+
