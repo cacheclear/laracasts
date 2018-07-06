@@ -39,4 +39,10 @@ In the File ".env" in the root directory is a single secure place to store keys 
 - Use the PHP-own function "compact" to pack variables of the actual scope in an array.
 - Every PHP template directive and condition can be replaced by the Blade template equivalent e.g. @if() instead of <?= if(): ?>
 
+####E06_Working_With_the_Query_Builder
+
+#####Artisan:
+- "php artisan" shows all artisan commands
+- the section with the "make" commands can be recognized as file generating commands
+- with the command "php artisan help name_of_command" you can get info a specific command e.g. php artisan help make:controller
 
