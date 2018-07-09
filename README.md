@@ -31,7 +31,13 @@ In the File ".env" in the root directory is a single secure place to store keys 
 
 #####Artisan:
 - The command "php artisan migrate" will run the migrations located in /database/migrations
+!!! If you are running an older version than MySQL v5.7.7 put the following lines to the AppServiceProvider.php to prevent a DB-Exception:
+use Illuminate\Support\Facades\Schema;
 
+public function boot()
+{
+    Schema::defaultStringLength(191);
+}
 
 ####E05_Pass_Data_to_Your_Views:
 
@@ -39,4 +45,12 @@ In the File ".env" in the root directory is a single secure place to store keys 
 - Use the PHP-own function "compact" to pack variables of the actual scope in an array.
 - Every PHP template directive and condition can be replaced by the Blade template equivalent e.g. @if() instead of <?= if(): ?>
 
+####E06_Working_With_the_Query_Builder
 
+- If you catch data from the database and return it as output to the screen, laravel will automatically convert it to json format
+
+#####Artisan:
+- "php artisan" shows all artisan commands
+- the section with the "make" commands can be recognized as file generating commands
+- with the command "php artisan help name_of_command" you can get info a specific command e.g. php artisan help make:controller
+- use "php artisan migrate:refresh" to rollback and rerun all migrations
