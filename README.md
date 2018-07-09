@@ -31,7 +31,13 @@ In the File ".env" in the root directory is a single secure place to store keys 
 
 #####Artisan:
 - The command "php artisan migrate" will run the migrations located in /database/migrations
+!!! If you are running an older version than MySQL v5.7.7 put the following lines to the AppServiceProvider.php to prevent a DB-Exception:
+use Illuminate\Support\Facades\Schema;
 
+public function boot()
+{
+    Schema::defaultStringLength(191);
+}
 
 ####E05_Pass_Data_to_Your_Views:
 
@@ -45,4 +51,4 @@ In the File ".env" in the root directory is a single secure place to store keys 
 - "php artisan" shows all artisan commands
 - the section with the "make" commands can be recognized as file generating commands
 - with the command "php artisan help name_of_command" you can get info a specific command e.g. php artisan help make:controller
-
+- use "php artisan migrate:refresh" to rollback and rerun all migrations
