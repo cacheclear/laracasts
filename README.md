@@ -47,6 +47,8 @@ public function boot()
 
 ####E06_Working_With_the_Query_Builder
 
+- If you catch data from the database and return it as output to the screen, laravel will automatically convert it to json format
+
 #####Artisan:
 - "php artisan" shows all artisan commands
 - the section with the "make" commands can be recognized as file generating commands
