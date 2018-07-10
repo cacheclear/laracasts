@@ -10,15 +10,28 @@
         {{ csrf_field()  }}
         <div class="form-group">
             <label for="title">Titel</label>
-            <input type="text" id="title" class="form-control" name="title">
+            <input type="text" id="title" class="form-control" name="title" required>
         </div>
 
         <div class="form-group">
             <label for="body">Password</label>
-            <textarea name="body" class="form-control" id="body"></textarea>
+            <textarea name="body" class="form-control" id="body" required></textarea>
         </div>
 
-        <button type="submit" class="btn btn-primary">Plublish</button>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">Plublish</button>
+        </div>
     </form>
 
+    @if(count($errors))
+        <div class="alert alert-danger">
+            <ul>
+                @foreach($errors->all() as $error)
+                    <li>{{$error}}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+
 @endsection
+
