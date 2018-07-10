@@ -10,6 +10,9 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/home', 'PostsController@index');
+
+Route::get('/', 'PostsController@index')->name('home');
 
 Route::get('/posts', 'PostsController@index');
 
@@ -29,6 +32,18 @@ Route::get('/about', function (){
     return view('about');
 });
 
-Auth::routes();
+Route::get('/register', 'RegistrationController@create');
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::post('/register', 'RegistrationController@store');
+
+
+Route::get('/login', 'SessionsController@create');
+
+Route::post('/login', 'SessionsController@store');
+
+Route::get('/logout', 'SessionsController@destroy');
+
+
+//Auth::routes();
+
+//Route::get('/home', 'HomeController@index')->name('home');

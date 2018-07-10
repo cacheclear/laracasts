@@ -11,6 +11,9 @@
         <a class="p-2 text-muted" href="#">Science</a>
         <a class="p-2 text-muted" href="#">Health</a>
         <a class="p-2 text-muted" href="#">Style</a>
-        <a class="p-2 text-muted" href="#">Travel</a>
+
+        @if(Auth::check())
+            <a class="ml-auto p-2 text-muted" href="#">{{auth()->user()->name}}</a>
+        @endif
     </nav>
 </div>
