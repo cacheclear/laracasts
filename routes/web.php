@@ -21,11 +21,9 @@ Route::post('/posts/{post}/comments', 'CommentsController@store');
 
 Route::get('/posts/{post}', 'PostsController@show');
 
-
 Route::get('/tasks', 'TasksController@index');
 
 Route::get('/tasks/{task}', 'TasksController@show');
-
 
 Route::get('/about', function (){
     return view('about');
@@ -33,4 +31,14 @@ Route::get('/about', function (){
 
 Route::get('/register', 'RegistrationController@create');
 
+Route::post('/register', 'RegistrationController@store');
+
+
 Route::get('/login', 'SessionsController@create');
+
+Route::get('/logout', 'SessionsController@destroy');
+
+
+//Auth::routes();
+
+//Route::get('/home', 'HomeController@index')->name('home');
