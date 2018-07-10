@@ -40,4 +40,8 @@
             </form>
         </div>
     </div>
+
+    <hr>
+
+    @include('layouts.errors')
 @endsection
