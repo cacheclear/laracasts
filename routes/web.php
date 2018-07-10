@@ -21,14 +21,16 @@ Route::post('/posts/{post}/comments', 'CommentsController@store');
 
 Route::get('/posts/{post}', 'PostsController@show');
 
+
 Route::get('/tasks', 'TasksController@index');
 
 Route::get('/tasks/{task}', 'TasksController@show');
+
 
 Route::get('/about', function (){
     return view('about');
 });
 
-Auth::routes();
+Route::get('/register', 'RegistrationController@create');
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/login', 'SessionsController@create');
