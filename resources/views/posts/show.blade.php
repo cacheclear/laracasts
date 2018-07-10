@@ -21,7 +21,8 @@
 
     <div class="card">
         <div class="card-block">
-            <form action="">
+            <form method="post" action="/posts/{{$post->id}}/comments">
+                {{csrf_field()}}
                 <div class="form-group">
                     <textarea
                         name="body"
