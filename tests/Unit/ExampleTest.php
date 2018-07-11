@@ -6,8 +6,13 @@ use App\Post;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
+use Illuminate\Foundation\Testing\DatabaseTransactions;
+use Illuminate\Foundation\Testing\DatabaseMigrations;
+
 class ExampleTest extends TestCase
 {
+    use DatabaseTransactions;
+
     /**
      * A basic test example.
      *
