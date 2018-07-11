@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Post;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 
 class PostsController extends Controller
@@ -15,9 +16,19 @@ class PostsController extends Controller
 
     public function index()
     {
-        $posts = Post::latest()->get();
+        /** @var Builder $posts */
+        $posts = Post::latest()
+            ->filter(request(['month', 'year']))
+            ->get();
+        
+        $archives = Post::selectRaw('year(created_at) year, monthname(created_at) month, count(*) published')
+            ->groupBy('year','month')
+            ->orderBy('year', 'desc')
+            ->orderByRaw('min(created_at) DESC')
+            ->get()
+            ->toArray();
 
-        return view('posts.index', compact('posts'));
+        return view('posts.index', compact(['posts', 'archives']));
     }
 
     public function show(Post $post)
