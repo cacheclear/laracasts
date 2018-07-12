@@ -14,9 +14,9 @@ class PostsController extends Controller
             ->except('index', 'show');
     }
 
-    public function index()
+    public function index(Posts $posts)
     {
-        $posts = (new Posts)->latest();
+        $posts = $posts->latest();
 
         return view('posts.index', compact('posts'));
     }
