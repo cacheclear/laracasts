@@ -13,6 +13,10 @@
 
 //Example Code for working with the Service Container
 
+App::bind('App\Billing\Stripe', function(){
+    return new \App\Billing\Stripe('1232dfg32df3g2f1dfg321');
+});
+
 
 
 
