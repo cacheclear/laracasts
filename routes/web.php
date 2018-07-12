@@ -17,8 +17,6 @@
 
 $stripe = App::make('App\Billing\Stripe');
 
-dd($stripe);
-
 Route::get('/home', 'PostsController@index');
 
 Route::get('/', 'PostsController@index')->name('home');
