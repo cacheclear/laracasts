@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Post;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
 
@@ -29,6 +30,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        App::bind('App\Billing\Stripe', function(){
+
+            return new \App\Billing\Stripe(config('services.stripe.secret'));
+        });
     }
 }
