@@ -11,11 +11,6 @@
 |
 */
 
-//Example Code for working with the Service Container
-
-
-
-$stripe = App::make('App\Billing\Stripe');
 
 Route::get('/home', 'PostsController@index');
 
