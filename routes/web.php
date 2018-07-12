@@ -14,7 +14,13 @@
 //Example Code for working with the Service Container
 
 App::bind('App\Billing\Stripe', function(){
-    return new \App\Billing\Stripe('1232dfg32df3g2f1dfg321');
+
+    // config() is a helperfunction:
+    // The key specifies to catch the value from the "services.php" file in the
+    // "config" directory, where in an multidimensional array under the keys
+    // "stripe/secret" the value will be caught from the ".env" file via the env() function.
+
+    return new \App\Billing\Stripe(config('services.stripe.secret'));
 });
 
 $stripe = App::make('App\Billing\Stripe');
