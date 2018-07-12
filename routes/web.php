@@ -25,7 +25,6 @@ App::bind('App\Billing\Stripe', function(){
 
 $stripe = App::make('App\Billing\Stripe');
 
-dd($stripe);
 
 
 Route::get('/home', 'PostsController@index');
