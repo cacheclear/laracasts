@@ -8,15 +8,18 @@ use Illuminate\Http\Request;
 
 class PostsController extends Controller
 {
-    public function __construct()
+    protected $posts;
+
+    public function __construct(Posts $posts)
     {
         $this->middleware('auth')
             ->except('index', 'show');
+        $this->posts = $posts;
     }
 
-    public function index(Posts $posts)
+    public function index()
     {
-        $posts = $posts->latest();
+        $posts = $this->posts->latest();
 
         return view('posts.index', compact('posts'));
     }

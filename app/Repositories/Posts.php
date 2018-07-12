@@ -10,13 +10,20 @@ namespace App\Repositories;
 
 
 use App\Post;
+use App\Redis;
 use Illuminate\Database\Eloquent\Builder;
 
 class Posts
 {
-    public function __construct()
+    /**
+     * @var Redis
+     */
+    private $redis;
+
+    public function __construct(Redis $redis)
     {
 
+        $this->redis = $redis;
     }
 
     public function latest()
