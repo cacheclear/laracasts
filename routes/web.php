@@ -17,7 +17,9 @@ App::bind('App\Billing\Stripe', function(){
     return new \App\Billing\Stripe('1232dfg32df3g2f1dfg321');
 });
 
+$stripe = App::make('App\Billing\Stripe');
 
+dd($stripe);
 
 
 Route::get('/home', 'PostsController@index');
