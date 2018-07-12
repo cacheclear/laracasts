@@ -17,6 +17,13 @@
 </head>
 
 <body>
+
+@if($flash = session('message'))
+    <div class="alert alert-success">
+      {{$flash}}
+    </div>
+@endif
+
 <div class="container">
     <header>
        @include('layouts.header')
