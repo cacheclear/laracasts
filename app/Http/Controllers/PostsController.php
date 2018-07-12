@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Post;
-use Illuminate\Database\Eloquent\Builder;
+use App\Repositories\Posts;
 use Illuminate\Http\Request;
 
 class PostsController extends Controller
@@ -16,10 +16,7 @@ class PostsController extends Controller
 
     public function index()
     {
-        /** @var Builder $posts */
-        $posts = Post::latest()
-            ->filter(request(['month', 'year']))
-            ->get();
+        $posts = (new Posts)->latest();
 
         return view('posts.index', compact('posts'));
     }
