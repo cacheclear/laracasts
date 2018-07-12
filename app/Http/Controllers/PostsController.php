@@ -3,23 +3,23 @@
 namespace App\Http\Controllers;
 
 use App\Post;
-use Illuminate\Database\Eloquent\Builder;
+use App\Repositories\Posts;
 use Illuminate\Http\Request;
 
 class PostsController extends Controller
 {
-    public function __construct()
+    protected $posts;
+
+    public function __construct(Posts $posts)
     {
         $this->middleware('auth')
             ->except('index', 'show');
+        $this->posts = $posts;
     }
 
     public function index()
     {
-        /** @var Builder $posts */
-        $posts = Post::latest()
-            ->filter(request(['month', 'year']))
-            ->get();
+        $posts = $this->posts->latest();
 
         return view('posts.index', compact('posts'));
     }
