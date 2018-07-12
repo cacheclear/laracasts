@@ -10,6 +10,12 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+//Example Code for working with the Service Container
+
+
+
+
 Route::get('/home', 'PostsController@index');
 
 Route::get('/', 'PostsController@index')->name('home');
