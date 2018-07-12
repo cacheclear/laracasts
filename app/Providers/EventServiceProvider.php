@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Listeners\CheckForSpam;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
 
@@ -15,6 +16,7 @@ class EventServiceProvider extends ServiceProvider
     protected $listen = [
         'App\Events\ThreadCreated' => [
             'App\Listeners\NotifySubscribers',
+            CheckForSpam::class,
         ],
     ];
 
